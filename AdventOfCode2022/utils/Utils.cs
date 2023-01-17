@@ -14,6 +14,7 @@ namespace AdventOfCode2022.utils
             {
                 new day1.Solver(),
                 new day5.Solver(),
+                new day6.Solver(),
             };
 
             foreach (var problem in problems) problem.PrintResults();
@@ -154,7 +155,7 @@ namespace AdventOfCode2022.utils
                     try
                     {
                         var result1 = solveMethod.MakeGenericMethod(type1).Invoke(this, new object[] { ProblemChoice.A });
-                        var elapsed1 = chrono.ElapsedMilliseconds;
+                        var elapsed1 = chrono.Elapsed.TotalMilliseconds;
                         Console.WriteLine("[PROBLEM 1] = {0, -10} -- {1, 5} ms", result1, elapsed1);
                     } catch (TargetInvocationException ex)
                     {
@@ -173,7 +174,7 @@ namespace AdventOfCode2022.utils
                     try
                     {
                         var result2 = solveMethod.MakeGenericMethod(type2).Invoke(this, new object[] { ProblemChoice.B });
-                        var elapsed2 = chrono.ElapsedMilliseconds;
+                        var elapsed2 = chrono.Elapsed.TotalMilliseconds;
                         Console.WriteLine("[PROBLEM 2] = {0, -10} -- {1, 5} ms", result2, elapsed2);
                     } catch (TargetInvocationException ex)
                     {
