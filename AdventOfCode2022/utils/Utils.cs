@@ -34,6 +34,16 @@ namespace AdventOfCode2022.utils
             return (T)Convert.ChangeType(obj, typeof(T));
         }
 
+        public static T[] ConvertCharArray<T>(char[] array)
+        {
+            T[] arr = new T[array.Length];
+            for(int i = 0; i < array.Length; i++)
+            {
+                arr[i] = Cast<T>(array[i]);
+            }
+            return arr;
+        }
+
         public static T GetCharsAs<T>(string str, int skip, int take)
         {
             var r = string.Join("", str.Skip(skip).Take(take));
