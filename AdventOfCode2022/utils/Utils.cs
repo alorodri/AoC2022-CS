@@ -16,6 +16,7 @@ namespace AdventOfCode2022.utils
                 new day5.Solver(),
                 new day6.Solver(),
                 new day7.Solver(),
+                new day8.Solver(),
             };
 
             foreach (var problem in problems) problem.PrintResults();
