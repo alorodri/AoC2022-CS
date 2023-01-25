@@ -93,14 +93,14 @@ namespace AdventOfCode2022.day9
                 Enum.TryParse<Direction>(GetCharsAs<string>(line, 0, 1), false, out Direction dir);
                 (int quantity, _) = GetUntilSpaceAs<int>(line, 2);
 #if DEBUG
-                if (pc == ProblemChoice.B) Console.WriteLine($"\n== {line} ==\n");
+                //if (pc == ProblemChoice.B) Console.WriteLine($"\n== {line} ==\n");
 #endif
                 if (dir == Direction.L)
                 {
                     for (int i = 0; i < quantity; i++)
                     {
 #if DEBUG
-                        if (pc == ProblemChoice.B) Print(ref tails, ref headPos);
+                        //if (pc == ProblemChoice.B) Print(ref tails, ref headPos);
 #endif
                         lastHeadPos = headPos;
                         headPos.x--;
@@ -111,7 +111,7 @@ namespace AdventOfCode2022.day9
                     for (int i = 0; i < quantity; i++)
                     {
 #if DEBUG
-                        if (pc == ProblemChoice.B) Print(ref tails, ref headPos);
+                        //if (pc == ProblemChoice.B) Print(ref tails, ref headPos);
 #endif
                         lastHeadPos = headPos;
                         headPos.x++;
@@ -122,7 +122,7 @@ namespace AdventOfCode2022.day9
                     for (int i = 0; i < quantity; i++)
                     {
 #if DEBUG
-                        if (pc == ProblemChoice.B) Print(ref tails, ref headPos);
+                        //if (pc == ProblemChoice.B) Print(ref tails, ref headPos);
 #endif
                         lastHeadPos = headPos;
                         headPos.y--;
@@ -133,7 +133,7 @@ namespace AdventOfCode2022.day9
                     for (int i = 0; i < quantity; i++)
                     {
 #if DEBUG
-                        if (pc == ProblemChoice.B) Print(ref tails, ref headPos);
+                        //if (pc == ProblemChoice.B) Print(ref tails, ref headPos);
 #endif
                         lastHeadPos = headPos;
                         headPos.y++;
