@@ -79,7 +79,7 @@ namespace AdventOfCode2022.day10
             {
                 Tick++;
                 BuildLCDMessage();
-                foreach (TickEvent e in  TickEvents)
+                foreach (TickEvent e in TickEvents)
                 {
                     if (e.TickToActivate == Tick) e.Event();
                 }
@@ -89,7 +89,7 @@ namespace AdventOfCode2022.day10
             {
                 var LCDRegisters = new int[]
                 {
-                XRegister-1, XRegister, XRegister+1
+                    XRegister-1, XRegister, XRegister+1
                 };
                 if (LCDRegisters.Contains((int)(Tick-1)%40)) LCDMessage.Append("#"); else LCDMessage.Append(".");
             }
