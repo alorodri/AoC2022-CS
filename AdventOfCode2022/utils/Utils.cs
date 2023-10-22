@@ -138,9 +138,8 @@ namespace AdventOfCode2022.utils
                 if (attrProblemDay == null) throw new Exception("ProblemDay attribute needed");
                 string day = attrProblemDay.Day;
                 string filename = ProblemType == ProblemType.TEST ? "test.txt" : "input.txt";
-                string projectFolder = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
                 List<T> lines = new List<T>();
-                string path = Path.Combine(Path.GetDirectoryName(projectFolder), $"inputs/{day}/{filename}");
+                string path = $"inputs/{day}/{filename}";
                 foreach (var line in File.ReadLines(path))
                 {
                     lines.Add(Cast<T>(line));
@@ -169,8 +168,11 @@ namespace AdventOfCode2022.utils
                     try
                     {
                         var result1 = solveMethod.MakeGenericMethod(type1).Invoke(this, new object[] { ProblemChoice.A });
-                        var elapsed1 = chrono.Elapsed.TotalMilliseconds;
-                        Console.WriteLine("[PROBLEM 1] = {0, -10} -- {1, 5} ms", result1, elapsed1);
+                        double milliseconds = chrono.Elapsed.TotalMilliseconds;
+                        double microseconds = milliseconds * 1000; // 1 millisecond = 1,000 microseconds
+                        double nanoseconds = microseconds * 1000;  // 1 microsecond = 1,000 nanoseconds
+                        Console.WriteLine($"[PROBLEM 1] = {result1}\t -- {nanoseconds:N0} ns, {microseconds:N0} μs, {milliseconds:N2} ms");
+
                     } catch (TargetInvocationException ex)
                     {
                         if (ex.InnerException == null) throw ex;
@@ -188,8 +190,10 @@ namespace AdventOfCode2022.utils
                     try
                     {
                         var result2 = solveMethod.MakeGenericMethod(type2).Invoke(this, new object[] { ProblemChoice.B });
-                        var elapsed2 = chrono.Elapsed.TotalMilliseconds;
-                        Console.WriteLine("[PROBLEM 2] = {0, -10} -- {1, 5} ms", result2, elapsed2);
+                        double milliseconds = chrono.Elapsed.TotalMilliseconds;
+                        double microseconds = milliseconds * 1000; // 1 millisecond = 1,000 microseconds
+                        double nanoseconds = microseconds * 1000;  // 1 microsecond = 1,000 nanoseconds
+                        Console.WriteLine($"[PROBLEM 2] = {result2}\t -- {nanoseconds:N0} ns, {microseconds:N0} μs, {milliseconds:N2} ms");
                     } catch (TargetInvocationException ex)
                     {
                         if (ex.InnerException == null) throw ex;
